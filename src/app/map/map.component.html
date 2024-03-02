@@ -1,0 +1,15 @@
+<form [formGroup]="myForm" (ngSubmit)="locateMe()">
+    <div class="form-input">
+        <label for="name">Name:</label>
+        <input id="name" type="text" formControlName="name" [disabled]="true">
+    </div>
+    <div class="form-actions">
+        <button class="btn" type="submit">Ubicarme</button>
+    </div>
+</form>
+<div class="map">
+    <google-map [center]="center" [zoom]="zoom" >
+        <map-marker [position]="center" [options]="markerOptions" (mapDragend)="updateMarkerPosition($event)">
+        </map-marker>
+    </google-map>
+</div>
